@@ -8,7 +8,7 @@ const NotDoneTodo = () => {
 
   return (
     <div>
-      <h1>Not Done todo</h1>
+      <h1>Not Done todo : {allTodo.filter(({isCompleted}) => !isCompleted).length}</h1>
       <Link to='/'>Back to home</Link>
       <ul>
         {allTodo.filter(item => !item.isCompleted).map(item => {

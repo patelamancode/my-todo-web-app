@@ -9,7 +9,7 @@ export const TodoDataProvider = ({children}) =>{
     const [isLoading, setIsLoading] = useState(false)
     
 
-    const [doneTodoCount, setDoneTodoCount] = useState(0)
+   
 
     const getData = async () =>{
         setIsLoading(true)
@@ -28,17 +28,12 @@ export const TodoDataProvider = ({children}) =>{
         getData();
     }, [])
 
-    // if(allTodo.length > 0){
-    //     const doneValue = allTodo.filter(({isCompleted}) => isCompleted).length;
-    //     setDoneTodoCount(doneValue)
-    // }
+   
 
     const markTodoAsCompleted = (todoItem) =>{
         let selected = allTodo.find((item) => item === todoItem)
         selected.isCompleted = !selected.isCompleted;
         setAllTodo([...allTodo ])
-        const updatedCount = doneTodoCount+1;
-        setDoneTodoCount(updatedCount)
 
         // Ankit bhaiya sol:
         // const updatedData = allTodo.map((todo) => {
@@ -55,7 +50,7 @@ export const TodoDataProvider = ({children}) =>{
 
 
     return( 
-        <TodoDataContext.Provider value={{isLoading, allTodo, markTodoAsCompleted, doneTodoCount}}>
+        <TodoDataContext.Provider value={{isLoading, allTodo, markTodoAsCompleted}}>
             {children}
         </TodoDataContext.Provider>
     )

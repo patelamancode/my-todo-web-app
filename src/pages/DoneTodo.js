@@ -5,13 +5,13 @@ import TodoItemTemp from '../components/TodoItemTemp';
 
 
 const DoneTodo = () => {
-  const {allTodo, doneTodoCount } = useContext(TodoDataContext);
+  const {allTodo } = useContext(TodoDataContext);
   
   
   
   return (
     <div>
-      <h1>Done todos : {doneTodoCount}</h1>
+      <h1>Done todos : {allTodo.filter(({isCompleted}) => isCompleted).length}</h1>
       <Link to='/'>Back to home</Link>
       <ul>
         {allTodo.filter(item => item.isCompleted).map(item => {
